@@ -2,7 +2,6 @@ import allure
 import pytest
 
 
-# Тестовые данные для поиска
 search_data = [
     ("Майкл")
 ]
@@ -26,7 +25,6 @@ def test_search_by_name(api_client, query):
         assert result["docs"][0]["name"] == query
 
 
-# Тестовые данные для поиска по ID
 id_data = [
     (5437614)
 ]
@@ -66,7 +64,7 @@ def test_get_series_by_year(api_client):
 
     with allure.step("Проверить, что все сериалы имеют год 2026"):
         for series in docs:
-            assert series["year"] == 2026, f"Найден сериал с годом {series['year']}"
+            assert series["year"] == 2026, f"Сериал с годом {series['year']}"
 
 
 @allure.title("Запрос с пустым обязательным полем ID")
